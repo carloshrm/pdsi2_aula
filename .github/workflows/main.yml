@@ -6,6 +6,7 @@ on:
 
 jobs:
     job1:
+        environment: test
         env:
             DB_URL: ${{secrets.DB_URL}}
             PG_USER: ${{secrets.PG_USER}}
