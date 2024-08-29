@@ -8,6 +8,10 @@ jobs:
     job1:
         env:
             DB_URL: ${{secrets.DB_URL}}
+            PG_USER: ${{secrets.PG_USER}}
+            PG_PASS: ${{secrets.PG_PASS}}
+            PG_DB: ${{secrets.PG_DB}}
+
         runs-on: ubuntu-latest
 
         services:
@@ -34,8 +38,8 @@ jobs:
             - name: Esperando o PostgreSQL ficar pronto
               run: sleep 15
             - name: test
-              run: echo $DB_URL
+              run: echo ${{secrets.DB_URL}}
             - name: Executar pytest
               env:
-                  DATABASE_URL: $DB_URL
+                  DATABASE_URL: ${{secrets.DB_URL}}
               run: pytest teste.py
