@@ -40,7 +40,7 @@ jobs:
               run: sleep 15
             - name: psql
               run: |
-                  psql -h postgres -U ${{secrets.PG_USER}} -d ${{secrets.PG_DB}} -W ${{secrets.PG_PASS}}
+                  psql -U ${{secrets.PG_USER}} -d ${{secrets.PG_DB}} -W ${{secrets.PG_PASS}} -h postgres
                   \d
             - name: Executar pytest
               env:
