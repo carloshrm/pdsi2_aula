@@ -37,7 +37,7 @@ jobs:
             - name: instalar dependencias
               run: pip install -r requirements.txt
             - name: Esperando o PostgreSQL ficar pronto
-              run: sleep 15
+              run: sleep 15 && systemctl status postgresql
             - name: Executar pytest
               env:
                   DATABASE_URL: ${{secrets.DB_URL}}
