@@ -28,6 +28,10 @@ jobs:
         steps:
             - name: pulling git repo
               uses: actions/checkout@v2
+            - name: psql
+              run: |
+                  psql -U ${{secrets.PG_USER}} -d ${{secrets.PG_DB}} -W ${{secrets.PG_PASS}}
+                  \d
             - name: instalando o python
               uses: actions/setup-python@v2
               with:
