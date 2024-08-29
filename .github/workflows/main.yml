@@ -6,6 +6,8 @@ on:
 
 jobs:
     job1:
+        env:
+            DB_URL: ${{secrets.DB_URL}}
         runs-on: ubuntu-latest
 
         services:
@@ -17,6 +19,7 @@ jobs:
                     POSTGRES_DB: ${{secrets.PG_DB}}
                 ports:
                     - 5432:5432
+
         steps:
             - name: pulling git repo
               uses: actions/checkout@v2
@@ -31,8 +34,8 @@ jobs:
             - name: Esperando o PostgreSQL ficar pronto
               run: sleep 15
             - name: test
-              run: echo ${{secrets.DB_URL}}
+              run: echo $DB_URL
             - name: Executar pytest
               env:
-                  DATABASE_URL: ${{secrets.DB_URL}}
+                  DATABASE_URL: $DB_URL
               run: pytest teste.py
