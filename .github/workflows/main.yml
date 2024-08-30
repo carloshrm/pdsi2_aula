@@ -18,10 +18,10 @@ jobs:
         services:
             postgres:
                 image: postgres:13
-                env:
-                    POSTGRES_USER: ${{secrets.PG_USER}}
-                    POSTGRES_PASSWORD: ${{secrets.PG_PASS}}
-                    POSTGRES_DB: ${{secrets.PG_DB}}
+                # env:
+                # POSTGRES_USER: ${{secrets.PG_USER}}
+                # POSTGRES_PASSWORD: ${{secrets.PG_PASS}}
+                # POSTGRES_DB: ${{secrets.PG_DB}}
                 ports:
                     - 5432:5432
 
