@@ -17,7 +17,7 @@ def teste_quadrado():
 def teste_msg():
   msg = {"titulo": "teste", "conteudo": "cont"}
 
-  response = client.post(f"/criar", json=msg)
+  response = client.post(f"/msg/criar", json=msg)
 
   assert response.status_code == 201
   assert "mensagem" in response.json()
